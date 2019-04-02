@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string>APPL.icns</string>
+	<string>ColorSpot</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.fructivity.colorpickerpro</string>
 	<key>CFBundleInfoDictionaryVersion</key>
