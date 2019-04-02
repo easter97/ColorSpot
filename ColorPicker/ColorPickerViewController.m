@@ -37,12 +37,22 @@ NSString *colorNameFromColor(NSColor *color) {
     NSString *colorName = @"";
     int hue = (int)([color hueComponent] * 360);
     
-    
-    if (0 < hue && hue <= 14) {
+    //        NSLog(@"red value: %f", [color redComponent]);
+    if ([color redComponent])
+    if (hue == 0 || [color saturationComponent] <= 0.01) {
+        float redValue = [color redComponent] * 256;
+        if (redValue < 22) {
+            colorName = @"Black";
+        } else if (redValue >= 22 && redValue < 241) {
+            colorName = @"Gray";
+        } else {
+            colorName = @"White";
+        }
+    } else if (0 < hue && hue <= 18) {
         colorName = @"Red";
-    } else if (15 <= hue && hue <= 45) {
+    } else if (19 <= hue && hue <= 42) {
         colorName = @"Orange";
-    } else if (46 <= hue && hue <= 70) {
+    } else if (42 <= hue && hue <= 70) {
         colorName = @"Yellow";
     } else if (71 <= hue && hue <= 79) {
         colorName = @"Lime";
@@ -64,16 +74,6 @@ NSString *colorNameFromColor(NSColor *color) {
         colorName = @"Rose";
     } else if (345 <= hue && hue <= 359) {
         colorName = @"Red";
-    } else {
-//        NSLog(@"red value: %f", [color redComponent]);
-        float redValue = [color redComponent] * 256;
-        if (redValue < 22) {
-            colorName = @"Black";
-        } else if (redValue >= 22 && redValue < 241) {
-            colorName = @"Gray";
-        } else {
-            colorName = @"White";
-        }
     }
     return colorName;
 }
