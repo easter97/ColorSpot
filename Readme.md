@@ -1,10 +1,10 @@
 # ColorSpot
+![ColorSpot](https://raw.githubusercontent.com/andermoran/ColorSpot/master/ColorSpot%20Logo.png)
 
 Requires Mac Os X 10.6 or newer.
-
 ## About
 
-This application is designed to assist users that suffer from color blindness. 
+This application is designed to assist users that suffer from color blindness by providing a tool for color identification on Mac OS. 
 
 ## License
 **Portions of this software are subject to the license that follows:**
