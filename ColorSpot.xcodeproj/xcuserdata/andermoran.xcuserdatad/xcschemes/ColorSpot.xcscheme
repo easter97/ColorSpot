@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "55D4EC7A13FFF18D00D13344"
-               BuildableName = "Color Picker Pro.app"
-               BlueprintName = "Color Picker Pro"
-               ReferencedContainer = "container:Color Picker Pro.xcodeproj">
+               BuildableName = "ColorSpot.app"
+               BlueprintName = "ColorSpot"
+               ReferencedContainer = "container:ColorSpot.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "55D4EC7A13FFF18D00D13344"
-            BuildableName = "Color Picker Pro.app"
-            BlueprintName = "Color Picker Pro"
-            ReferencedContainer = "container:Color Picker Pro.xcodeproj">
+            BuildableName = "ColorSpot.app"
+            BlueprintName = "ColorSpot"
+            ReferencedContainer = "container:ColorSpot.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "55D4EC7A13FFF18D00D13344"
-            BuildableName = "Color Picker Pro.app"
-            BlueprintName = "Color Picker Pro"
-            ReferencedContainer = "container:Color Picker Pro.xcodeproj">
+            BuildableName = "ColorSpot.app"
+            BlueprintName = "ColorSpot"
+            ReferencedContainer = "container:ColorSpot.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "55D4EC7A13FFF18D00D13344"
-            BuildableName = "Color Picker Pro.app"
-            BlueprintName = "Color Picker Pro"
-            ReferencedContainer = "container:Color Picker Pro.xcodeproj">
+            BuildableName = "ColorSpot.app"
+            BlueprintName = "ColorSpot"
+            ReferencedContainer = "container:ColorSpot.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

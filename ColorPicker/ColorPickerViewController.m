@@ -33,12 +33,10 @@
 @synthesize x, y;
 
 /* ander */
-NSString *colorNameFromColor(NSColor *color) {
++ (NSString *)colorNameFromColor:(NSColor *)color {
     NSString *colorName = @"";
     int hue = (int)([color hueComponent] * 360);
     
-    //        NSLog(@"red value: %f", [color redComponent]);
-    if ([color redComponent])
     if (hue == 0 || [color saturationComponent] <= 0.01) {
         float redValue = [color redComponent] * 256;
         if (redValue < 22) {
@@ -93,7 +91,7 @@ NSImage *swatchWithColor(NSColor *color) {
 - (void)deliverNotification {
     NSColor *currentColor = [ColorPicker colorAtLocation:mouseLocation];
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.title = [NSString stringWithFormat:@"Color: %@", colorNameFromColor(currentColor)];
+    notification.title = [NSString stringWithFormat:@"Color: %@", [ColorPickerViewController colorNameFromColor:currentColor]];
     notification.informativeText = [currentColor colorToRGBRepresentation];
     notification.contentImage = swatchWithColor(currentColor);
     
@@ -171,7 +169,7 @@ NSImage *swatchWithColor(NSColor *color) {
     
     /* ander */
     /* reference this site https://www.color-blindness.com/color-name-hue/ */
-    [colorText setStringValue:colorNameFromColor(currentColor)];
+    [colorText setStringValue:[ColorPickerViewController colorNameFromColor:currentColor]];
     
     [x setStringValue:[NSString stringWithFormat:@"%.f", mouseLocation.x]];
     [y setStringValue:[NSString stringWithFormat:@"%.f", mouseLocation.y]];

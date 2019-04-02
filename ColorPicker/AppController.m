@@ -46,13 +46,13 @@
     
     // setup status bar
     
-    float width = 10; // will change programmatically
+    float width = 120; // will change programmatically
     float height = [[NSStatusBar systemStatusBar] thickness];
     NSRect statusItemFrame = NSMakeRect(0, 0, width, height);
     
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    
     self.statusItemView = [[CustomStatusItem alloc] initWithFrame:statusItemFrame];
+//    self.statusItem.title = @"123456789123456789";
     [statusItemView setDelegate:self];
     
     [statusItem setView:self.statusItemView];

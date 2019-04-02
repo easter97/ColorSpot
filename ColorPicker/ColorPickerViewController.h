@@ -44,4 +44,7 @@
 - (void)updateShortcutText;
 - (void)deliverNotification;
 
+/* ander */
++ (NSString *)colorNameFromColor:(NSColor *)color;
+
 @end
