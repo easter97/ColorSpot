@@ -39,40 +39,40 @@ NSString *colorNameFromColor(NSColor *color) {
     
     
     if (0 < hue && hue <= 14) {
-        colorName = @"red";
+        colorName = @"Red";
     } else if (15 <= hue && hue <= 45) {
-        colorName = @"orange";
+        colorName = @"Orange";
     } else if (46 <= hue && hue <= 70) {
-        colorName = @"yellow";
+        colorName = @"Yellow";
     } else if (71 <= hue && hue <= 79) {
-        colorName = @"lime";
+        colorName = @"Lime";
     } else if (80 <= hue && hue <= 163) {
-        colorName = @"green";
+        colorName = @"Green";
     } else if (164 <= hue && hue <= 193) {
-        colorName = @"cyan";
+        colorName = @"Cyan";
     } else if (194 <= hue && hue <= 240) {
-        colorName = @"blue";
+        colorName = @"Blue";
     } else if (241 <= hue && hue <= 260) {
-        colorName = @"indigo";
+        colorName = @"Indigo";
     } else if (261 <= hue && hue <= 270) {
-        colorName = @"violet";
+        colorName = @"Violet";
     } else if (271 <= hue && hue <= 291) {
-        colorName = @"purple";
+        colorName = @"Purple";
     } else if (292 <= hue && hue <= 327) {
-        colorName = @"magenta";
+        colorName = @"Magenta";
     } else if (328 <= hue && hue <= 344) {
-        colorName = @"rose";
+        colorName = @"Rose";
     } else if (345 <= hue && hue <= 359) {
-        colorName = @"red";
+        colorName = @"Red";
     } else {
 //        NSLog(@"red value: %f", [color redComponent]);
         float redValue = [color redComponent] * 256;
         if (redValue < 22) {
-            colorName = @"black";
+            colorName = @"Black";
         } else if (redValue >= 22 && redValue < 241) {
-            colorName = @"gray";
+            colorName = @"Gray";
         } else {
-            colorName = @"white";
+            colorName = @"White";
         }
     }
     return colorName;
@@ -93,7 +93,7 @@ NSImage *swatchWithColor(NSColor *color) {
 - (void)deliverNotification {
     NSColor *currentColor = [ColorPicker colorAtLocation:mouseLocation];
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.title = colorNameFromColor(currentColor);
+    notification.title = [NSString stringWithFormat:@"Color: %@", colorNameFromColor(currentColor)];
     notification.informativeText = [currentColor colorToRGBRepresentation];
     notification.contentImage = swatchWithColor(currentColor);
     
