@@ -20,7 +20,6 @@
 @synthesize mouseLocation;
 @synthesize colorPickerPreview;
 @synthesize rgbText;
-@synthesize hexText;
 @synthesize hueText;
 @synthesize saturationText;
 @synthesize brightnessText;
@@ -32,12 +31,20 @@
 @synthesize colorHistoryView1, colorHistoryView2, colorHistoryView3, colorHistoryView4, colorHistoryView5;
 @synthesize x, y;
 
+bool debug = 1;
+
 /* ander */
 + (NSString *)colorNameFromColor:(NSColor *)color {
     NSString *colorName = @"";
     int hue = (int)([color hueComponent] * 360);
     
-    if (hue == 0 || [color saturationComponent] <= 0.01) {
+    float rgDif = fabs([color redComponent] - [color greenComponent]) * 256;
+    float gbDif = fabs([color greenComponent] - [color blueComponent]) * 256;
+    float brDif = fabs([color blueComponent] - [color redComponent]) * 256;
+    
+    if (hue == 0 || [color saturationComponent] <= 0.01 ||
+        (rgDif < 15 && gbDif < 15 && brDif < 15)
+        ) {
         float redValue = [color redComponent] * 256;
         if (redValue < 22) {
             colorName = @"Black";
@@ -160,8 +167,19 @@ NSImage *swatchWithColor(NSColor *color) {
     colorPreview.color = currentColor;
     [colorPreview setNeedsDisplay:YES];
     
+    //[rgbText setStringValue:[currentColor colorToRGBRepresentation]];
+   //[hexText setStringValue:[currentColor colorToHEXRepresentation]];
+    /* ander */
     [rgbText setStringValue:[currentColor colorToRGBRepresentation]];
-    [hexText setStringValue:[currentColor colorToHEXRepresentation]];
+    
+    /* ander: logging */
+    if (debug) {
+        NSLog(@"brightness:\t%@\nhue:\t\t\t%@\nsat:\t\t\t%@\nrgb:\t\t\t%@",
+            [currentColor colorToBrightnessRepresentation],
+            [currentColor colorToHueRepresentation],
+            [currentColor colorToSaturationRepresentation],
+            [currentColor colorToRGBRepresentation]);
+    }
 
     [hueText setStringValue:[currentColor colorToHueRepresentation]];
     [saturationText setStringValue:[currentColor colorToSaturationRepresentation]];

@@ -44,7 +44,7 @@
     float b = [self blueComponent] * 0.255 / 1.0;
     
     
-    NSString *rgb = [NSString stringWithFormat:@"rgb(%@, %@, %@)", 
+    NSString *rgb = [NSString stringWithFormat:@"(%@, %@, %@)",
                      [self floatToStringWithDecimal:r],
                      [self floatToStringWithDecimal:g],
                      [self floatToStringWithDecimal:b]];
@@ -122,8 +122,13 @@
 
 - (NSString*)colorToBrightnessRepresentation
 {
-    unsigned decimalPart = [self decimalPart:[self brightnessComponent] precision:2];
-    return [NSString stringWithFormat:@"%02u%%", decimalPart];
+    if ([self brightnessComponent] != 1) {
+        unsigned decimalPart = [self decimalPart:[self brightnessComponent] precision:2];
+        return [NSString stringWithFormat:@"%02u%%", decimalPart];
+    } else {
+        /* ander */
+        return @"100%";
+    }
 }
 
 - (NSString *)colorToCMYKRepresentation

@@ -17,10 +17,9 @@
                 <outlet property="colorPickerPreview" destination="12" id="13"/>
                 <outlet property="colorPreview" destination="40" id="41"/>
                 <outlet property="colorText" destination="SB7-52-5Ao" id="Vfe-46-g5n"/>
-                <outlet property="hexText" destination="4" id="8"/>
                 <outlet property="hide" destination="34" id="38"/>
                 <outlet property="hueText" destination="DIB-T1-zCP" id="ddp-OL-jr9"/>
-                <outlet property="rgbText" destination="2" id="10"/>
+                <outlet property="rgbText" destination="4" id="EsS-Df-eQd"/>
                 <outlet property="saturationText" destination="u6K-MN-LI4" id="ei2-sO-oEU"/>
                 <outlet property="shortcutLabel" destination="42" id="65"/>
                 <outlet property="view" destination="1" id="11"/>
@@ -32,15 +31,6 @@
             <rect key="frame" x="0.0" y="0.0" width="443" height="230"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField verticalHuggingPriority="750" id="4">
-                    <rect key="frame" x="94" y="127" width="90" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="hex" id="5">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <customView id="12" customClass="ColorPickerPreview">
                     <rect key="frame" x="288" y="75" width="135" height="135"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -68,9 +58,9 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" id="TFo-DN-UYw">
-                    <rect key="frame" x="21" y="127" width="67" height="17"/>
+                    <rect key="frame" x="21" y="127" width="35" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Hex Code:" id="3fp-OA-TyO">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="RGB:" id="3fp-OA-TyO">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -176,6 +166,15 @@
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="Td5-WB-UoU">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" misplaced="YES" id="4">
+                    <rect key="frame" x="54" y="128" width="137" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(r, g, b)" id="5">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>

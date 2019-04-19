@@ -19,7 +19,6 @@
 @property (assign) NSPoint mouseLocation;
 @property (retain) IBOutlet ColorPickerPreview *colorPickerPreview;
 @property (retain) IBOutlet NSTextField *rgbText;
-@property (retain) IBOutlet NSTextField *hexText;
 @property (strong) IBOutlet NSTextField *hueText;
 @property (strong) IBOutlet NSTextField *saturationText;
 @property (strong) IBOutlet NSTextField *colorText;
