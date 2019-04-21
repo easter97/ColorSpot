@@ -96,4 +96,16 @@
 //    [self toggleShowWindow];
 }
 
+/* ander */
+- (void)rightMouseDown:(NSEvent *)event {
+    NSMenu *theMenu = [[NSMenu alloc] initWithTitle:@"Contextual Menu"];
+    [theMenu insertItemWithTitle:@"Quit" action:@selector(quitApp) keyEquivalent:@"" atIndex:0];
+    
+    [NSMenu popUpContextMenu:theMenu withEvent:event forView:self];
+}
+
+- (void)quitApp {
+    [NSApp terminate:self];
+}
+
 @end
