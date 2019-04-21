@@ -77,7 +77,7 @@ bool debug = 1;
         colorName = @"Magenta";
     } else if (328 <= hue && hue <= 344) {
         colorName = @"Rose";
-    } else if (345 <= hue && hue <= 359) {
+    } else if (345 <= hue && hue <= 360) {
         colorName = @"Red";
     }
     return colorName;
