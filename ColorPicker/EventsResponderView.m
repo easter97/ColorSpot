@@ -30,19 +30,19 @@
 {
     switch ([theEvent keyCode]) {
         case kEscKeyCode:
-            [appController.window orderOut:self];
+            //[appController.window orderOut:self];
             break;
         case kLeftArrowKeyCode:
-            [appController performSelector:@selector(moveLeft)];
+            //[appController performSelector:@selector(moveLeft)];
             break;
         case kRightArrowKeyCode:
-            [appController performSelector:@selector(moveRight)];
+            //[appController performSelector:@selector(moveRight)];
             break;
         case kDownArrowKeyCode:
-            [appController performSelector:@selector(moveDown)];
+            //[appController performSelector:@selector(moveDown)];
             break;
         case kUpArrowKeyCode:
-            [appController performSelector:@selector(moveUp)];
+            //[appController performSelector:@selector(moveUp)];
             break;
     }
    

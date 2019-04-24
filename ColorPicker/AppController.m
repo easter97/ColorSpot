@@ -46,7 +46,7 @@
     
     // setup status bar
     
-    float width = 120; // will change programmatically
+    float width = 95; // will change programmatically
     float height = [[NSStatusBar systemStatusBar] thickness];
     NSRect statusItemFrame = NSMakeRect(0, 0, width, height);
     

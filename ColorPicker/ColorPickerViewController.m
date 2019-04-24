@@ -31,7 +31,9 @@
 @synthesize colorHistoryView1, colorHistoryView2, colorHistoryView3, colorHistoryView4, colorHistoryView5;
 @synthesize x, y;
 
-bool debug = 1;
+bool debug = 0;
+extern bool appIsPaused;
+extern bool needToShowWindowOnCPVC;
 
 /* ander */
 + (NSString *)colorNameFromColor:(NSColor *)color {
@@ -153,46 +155,54 @@ NSImage *swatchWithColor(NSColor *color) {
     if (!mouseLocation.x)
         return;
     
-    // picker view
-    
-    NSImage *pickerImage = [ColorPicker imageForLocation:mouseLocation];
-    
-    colorPickerPreview.preview = pickerImage;
-    [colorPickerPreview setNeedsDisplay:YES];
-    
-    // colors
-    
-    NSColor *currentColor = [ColorPicker colorAtLocation:mouseLocation];
-  
-    colorPreview.color = currentColor;
-    [colorPreview setNeedsDisplay:YES];
-    
-    //[rgbText setStringValue:[currentColor colorToRGBRepresentation]];
-   //[hexText setStringValue:[currentColor colorToHEXRepresentation]];
-    /* ander */
-    [rgbText setStringValue:[currentColor colorToRGBRepresentation]];
-    
-    /* ander: logging */
-    if (debug) {
-        NSLog(@"brightness:\t%@\nhue:\t\t\t%@\nsat:\t\t\t%@\nrgb:\t\t\t%@",
-            [currentColor colorToBrightnessRepresentation],
-            [currentColor colorToHueRepresentation],
-            [currentColor colorToSaturationRepresentation],
-            [currentColor colorToRGBRepresentation]);
+    if (needToShowWindowOnCPVC) {
+        [self showWindow];
+        needToShowWindowOnCPVC = false;
     }
+    if (!appIsPaused) {
+        // picker view
+        
+        NSImage *pickerImage = [ColorPicker imageForLocation:mouseLocation];
+        
+        colorPickerPreview.preview = pickerImage;
+        [colorPickerPreview setNeedsDisplay:YES];
+        
+        // colors
+        
+        NSColor *currentColor = [ColorPicker colorAtLocation:mouseLocation];
+      
+        colorPreview.color = currentColor;
+        [colorPreview setNeedsDisplay:YES];
+        
+        //[rgbText setStringValue:[currentColor colorToRGBRepresentation]];
+       //[hexText setStringValue:[currentColor colorToHEXRepresentation]];
+        /* ander */
+        [rgbText setStringValue:[currentColor colorToRGBRepresentation]];
+        
+        /* ander: logging */
+        if (debug) {
+            NSLog(@"brightness:\t%@\nhue:\t\t\t%@\nsat:\t\t\t%@\nrgb:\t\t\t%@",
+                [currentColor colorToBrightnessRepresentation],
+                [currentColor colorToHueRepresentation],
+                [currentColor colorToSaturationRepresentation],
+                [currentColor colorToRGBRepresentation]);
+        }
 
-    [hueText setStringValue:[currentColor colorToHueRepresentation]];
-    [saturationText setStringValue:[currentColor colorToSaturationRepresentation]];
-    [brightnessText setStringValue:[currentColor colorToBrightnessRepresentation]];
-    
-    /* ander */
-    /* reference this site https://www.color-blindness.com/color-name-hue/ */
-    [colorText setStringValue:[ColorPickerViewController colorNameFromColor:currentColor]];
-    
-    [x setStringValue:[NSString stringWithFormat:@"%.f", mouseLocation.x]];
-    [y setStringValue:[NSString stringWithFormat:@"%.f", mouseLocation.y]];
-    
-    [self updateHistoryView];
+        [hueText setStringValue:[currentColor colorToHueRepresentation]];
+        [saturationText setStringValue:[currentColor colorToSaturationRepresentation]];
+        [brightnessText setStringValue:[currentColor colorToBrightnessRepresentation]];
+        
+        /* ander */
+        /* reference this site https://www.color-blindness.com/color-name-hue/ */
+        [colorText setStringValue:[ColorPickerViewController colorNameFromColor:currentColor]];
+        
+        [x setStringValue:[NSString stringWithFormat:@"%.f", mouseLocation.x]];
+        [y setStringValue:[NSString stringWithFormat:@"%.f", mouseLocation.y]];
+        
+        [self updateHistoryView];
+    } else {
+        [self hide:NULL];
+    }
 }
 
 - (void)captureColor:(BOOL)saveToHistory
@@ -214,6 +224,10 @@ NSImage *swatchWithColor(NSColor *color) {
     [self.appController.window orderOut:self];
     /* original code below */
 //    [appController toggleShowWindow];
+}
+
+- (void)showWindow {
+    [self.appController.window orderFront:self];
 }
 
 - (void)updateShortcutText {

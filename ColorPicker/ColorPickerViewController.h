@@ -42,6 +42,7 @@
 - (IBAction)hide:(id)sender;
 - (void)updateShortcutText;
 - (void)deliverNotification;
+- (void)showWindow;
 
 /* ander */
 + (NSString *)colorNameFromColor:(NSColor *)color;
